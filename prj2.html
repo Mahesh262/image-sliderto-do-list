@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebJ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 128, 0, 0.633), rgba(255, 0, 0, 0.29) rgba(255, 166, 0, 0.571));
+
+        }
+
+        .navibar {
+            background: rgb(238, 189, 141);
+        }
+
+        .nav {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .nav li {
+            background: rgb(237, 191, 144);
+        }
+
+        .container {
+
+            width: 100%;
+            height: 100vh;
+            background-color: linear-gradient(rgba(0, 128, 0, 0.633), rgba(255, 0, 0, 0.29) rgba(255, 166, 0, 0.571));
+
+
+        }
+
+        .menusection {
+            background: url("swan.jpg");
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+
+        }
+
+        .menusection p {
+            transform: translate(0%, 240%);
+            color: #0e4743;
+
+        }
+
+        .backsection {
+            display: flex;
+            background-color: cornsilk;
+            /* border: 2px solid green; */
+            border-radius: 999px;
+            width: 0px;
+            transition: all 0.5s;
+
+        }
+
+        .backsection.active {
+            width: 70%;
+        }
+
+        input[type=text] {
+            width: inherit;
+            border-radius: inherit;
+            border-style: none;
+            border-collapse: collapse;
+
+        }
+
+        .mnav {
+            position: fixed;
+            width: 300px;
+
+
+        }
+
+        .mv1 li {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+
+
+        }
+
+        .mv1 li a {
+            transition: ease-in-out 1s;
+            animation: myname 0.5s;
+            text-decoration: none;
+
+        }
+
+        @keyframes myname {
+            0% {
+                transition: 0.5s;
+            }
+
+        }
+
+        .sliders {
+            width: 100%;
+            height: 50vh;
+            padding-top: 10px;
+            background: rgba(240, 230, 140, 0.801);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            gap: 20px;
+
+
+
+        }
+
+        .slidercontrol {
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+
+
+        }
+
+        .prev,
+        .next {
+
+            position: absolute;
+            text-decoration: none;
+
+        }
+
+        .dots {
+            display: flex;
+            position: absolute;
+            transform: translate(220px, 80px);
+            color: white;
+
+        }
+
+        .active {
+            color: rgba(0, 0, 0, 0.712);
+            background: blue;
+        }
+
+        .next {
+            right: 30px;
+            background: rgba(245, 222, 179, 0.685);
+            border-style: none;
+            padding: 12px;
+        }
+
+        .prev {
+            left: 30px;
+            background: rgba(245, 222, 179, 0.685);
+            border-style: none;
+            padding: 12px;
+        }
+
+        .sliderpart {
+            position: absolute;
+            transition: all 0.5s infinite;
+            transform: perspective(3d);
+
+        }
+
+
+
+        .dot1:hover {
+            color: green;
+        }
+
+        .todo {
+            background: wheat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            transition: all 0.5s;
+
+
+        }
+
+        .todo ul {
+            padding-top: 10px;
+        }
+
+        .options {
+            /* display: flex; */
+
+            /* border: 2px solid green; */
+            width: 350px;
+            gap: 10px;
+            border-radius: 999px;
+            background: rgba(245, 222, 179, 0.589);
+
+
+        }
+
+        .tolist {
+            background: rgba(64, 224, 208, 0.637);
+            border: 2px solid pink;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+
+
+        }
+
+        .bora {
+            transition: 0.5s ease-in;
+            transition: all 0.5s;
+            animation: myani;
+            animation-duration: 1s;
+        }
+
+        .opt {
+            transition: all 0.5s;
+            animation: myani;
+            animation-duration: 1s;
+        }
+
+        @keyframes myani {
+            50% {
+                transition: 0.5s;
+            }
+
+        }
+
+        .menulis {
+            width: 350px;
+            /* border: 2px solid red; */
+            display: flex;
+            border: 2px solid rgba(255, 251, 0, 0.63);
+            justify-content: space-between;
+            border-radius: 999px;
+
+
+
+        }
+
+
+        .options {
+            list-style: none;
+            overflow: visible;
+            box-sizing: border-box;
+            cursor: pointer;
+            pointer-events: visibleStroke;
+            z-index: 1;
+        }
+
+        .options:hover {
+            background: rgba(221, 14, 221, 0.534)
+        }
+
+        .fourthsection {
+            width: 100%;
+            height: 100%;
+
+
+        }
+
+        .innerfour {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url(montserrat.jpg);
+            height: inherit;
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        .innerfour h1 {
+            text-transform: uppercase;
+            color: thistle;
+            mix-blend-mode: overlay;
+            background: black;
+            cursor: pointer;
+            animation: glow 3s ease-in-out infinite alternate;
+
+
+        }
+
+        .innerfour h1:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes glow {
+            0% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes glow {
+
+            0%,
+            50% {
+                transform: rotate(0deg)
+            }
+
+            100%,
+            0% {
+                transform: rotate(5deg);
+            }
+
+        }
+
+        .fa {
+            padding: 2px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="navibar">
+            <div class="navlist">
+                <ul class="nav">
+                    <li id="home">HOME
+                        <div class="mnav">
+                            <ul class="mv1">
+                                <li><a href=#slider>
+
+                                        Link1</a></li>
+                                <li>Link2</li>
+                                <li>Link3</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>Serivces</li>
+                    <li>About</li>
+
+                </ul>
+            </div>
+            <div class="menusection">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, voluptate sapiente dolorem
+                    voluptates hic illum unde temporibus, atque vitae qui quibusdam<br> saepe rem nulla voluptas
+                    incidunt nesciunt consectetur neque culpa.</p>
+                <div class="backsection">
+
+                    <img id="googleicon" src="google.png" alt="gole" width="25px">
+                    <input type="text" placeholder="enter url">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="todo">
+            <div class="tolist">
+
+                <div class="menulis" id="menui">
+                    <p id="selecttext"> welcome</p>
+                    <div class="bora">
+                        <i id="icons" class="fa fa-chevron-down"></i></div>
+                </div>
+
+            </div>
+            <ul id='opt'>
+                <li class="options" id="ops">
+                    <i class="fa fa-facebook-f" style="color:rgb(81, 136, 219)"></i>
+                    facebook
+
+                </li>
+                <li class="options" id="ops">
+                    <i class="fa fa-reddit-alien" style="color:red"></i>Reddit</li>
+                <li class="options" id="ops">
+                    <i class="fa fa-instagram" style="color: rgb(236, 132, 132)"></i>
+                    Instagram</li>
+                <li class="options" id="ops">
+                    <i class="fa fa-whatsapp" style="color:green"></i>Whatsapp</li>
+                <li class="options" id="ops">
+                    <i class="fa fa-twitter" style="color:rgb(81, 136, 219)"></i>Twitter</li>
+
+            </ul>
+        </div>
+        <div class="fourthsection">
+            <div class="innerfour">
+                <h1>mahesh</h1>
+            </div>
+        </div>
+        <!-- csoluel -->
+        <div class="carasouel">
+            <div class="slidercontrol">
+                <div class="sliders" id="slider">
+                    <div class="sliderpart">
+                        <img src="https://images.unsplash.com/photo-1641752084801-80dc709cdf28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"
+                            alt=".." width="400px">
+                    </div>
+                    <div class="sliderpart">
+                        <img src="https://images.unsplash.com/photo-1641754296850-89a463ff8a6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+                            alt=".." width="400px">
+                    </div>
+                    <div class="sliderpart">
+                        <img src="https://images.unsplash.com/photo-1641722177976-3a36b5882044?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=843&q=80"
+                            alt=".." width="400px">
+                    </div>
+                </div>
+                <button class="prev" onclick="next(1)">&lArr;</button>
+                <button class="next" onclick="next(-1)">&rarrw;</button>
+                <div class="dots">
+                    <span onclick="plusone(1)" class="dot1">1</span>
+                    <span onclick="plusone(2)" class="dot1">2</span>
+                    <span onclick="plusone(3)" class="dot1">3</span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        let bs = document.querySelector(".backsection")
+        let ion = document.getElementById('googleicon')
+        ion.onclick = function () {
+            bs.classList.toggle('active')
+        }
+    </script>
+    <!-- submenu -->
+    <script>
+        let hms = document.getElementById("home")
+        let mna = document.querySelector('.mnav')
+        mna.style.display = 'none'
+        hms.onclick = (function () {
+            if (mna.style.display === "none") {
+                mna.style.display = "block"
+
+            } else {
+                mna.style.display = "none"
+            }
+
+        })
+    </script>
+    <!-- icons rortaer -->
+    <script>
+        let bora = document.getElementById("icons")
+        let opti = document.getElementById("opt")
+        opti.style.display = "none"
+        bora.onclick = function () {
+            if (opti.style.display == 'none') {
+                opti.style.display = "block"
+                bora.style.transform = "rotate(180deg)"
+
+            } else {
+                opti.style.display = "none"
+                bora.style.transform = "rotate(0deg)"
+            }
+        }
+    </script>
+    <!-- to do list -->
+    <script>
+        let menuis = document.getElementById('menui')
+        let selecttext = document.getElementById("selecttext")
+        let optns = document.getElementById('ops')
+
+        for (optns of ops) {
+            optns.onclick = function () {
+                selecttext.innerHTML = this.textContent
+
+            }
+
+
+        }
+    </script>
+    <!-- image slides script code -->
+    <script>
+        var slideIndex = 0;
+        showslides(slideIndex)
+
+        function next(n) {
+            showslides(slideIndex += n)
+        }
+
+        function plusone(n) {
+            showslides(slideIndex += n)
+        }
+
+        function showslides(n) {
+
+            let imags = document.getElementsByClassName("sliderpart")
+            let dots = document.getElementsByClassName('dot1')
+
+            if (n > imags.length) {
+                slideIndex = 1;
+
+            }
+            if (n < 1) {
+                slideIndex = imags.length
+            }
+            for (let i = 0; i < imags.length; i++) {
+                imags[i].style.display = "none"
+
+            }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace('active', '')
+            }
+            imags[slideIndex - 1].style.display = "block"
+            dots[slideIndex - 1].className += " active"
+
+        }
+    </script>
+
+</body>
+
+</html>
